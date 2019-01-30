@@ -1,0 +1,59 @@
+{
+	"miniprogramRoot": "miniprogram/",
+	"cloudfunctionRoot": "cloudfunctions/",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"appid": "wx4b12b7afbb85e3af",
+	"projectname": "WeedingInvitationApplets",
+	"libVersion": "2.2.5",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+        {
+          "id": -1,
+          "name": "地图",
+          "pathName": "miniprogram/pages/map/index",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "zhufu",
+          "pathName": "miniprogram/pages/bless/index",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "poster",
+          "pathName": "miniprogram/pages/poster/index",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "留言",
+          "pathName": "miniprogram/pages/chat/index"
+        }
+			]
+		}
+	}
+}
