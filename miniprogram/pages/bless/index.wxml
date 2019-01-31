@@ -14,7 +14,7 @@
   </view>
 
   <view class='bless_bar'>
-    <view class='title' wx:if='{{zanNum > 0}}'>已收到 {{zanNum}} 位好友送来的祝福</view>
+    <view class='title' wx:if='{{zanNum > 0}}'>已收到 {{zanNum}} 次好友送来的祝福</view>
     <view class='btn_zone'>
       <view class='zan fl' wx:if='{{userInfo.length > 0}}'>
         <button type='primary' class='zhufu' bindtap='zan'>送上祝福</button>

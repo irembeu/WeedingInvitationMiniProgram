@@ -112,13 +112,15 @@ Page({
       var userInfo = e.detail.userInfo;
       var name = userInfo.nickName;
       var face = userInfo.avatarUrl;
-      var count = 0;
 
       const db = wx.cloud.database();
       const zanLogCollect = db.collection('zanLogs');
+
       zanLogCollect.add({
-        nickname: name,
-        face: face
+        data: {
+          nickname: name,
+          face: face
+        }
       });
 
       zanLogCollect.get({
@@ -129,38 +131,6 @@ Page({
           })
         }
       });
-      // zanLogCollect.get({
-      //   success(res) {
-      //     for (var i = 0; i < res.data.length; i++) {
-      //       var nickname = res.data[i]['nickname']
-      //       if (nickname == name) {
-      //         count = count + 1;
-      //       }
-      //     }
-      //   }
-      // });
-
-      // if(count == 0) {
-      //   zanLogCollect.add({
-      //     nickname: name,
-      //     face: face
-      //   });
-
-      //   zanLogCollect.get({
-      //     success(res) {
-      //       that.setData({
-      //         zanLog: res.data,
-      //         zanNum: res.data.length
-      //       })
-      //     }
-      //   });
-      // } else {
-      //   wx.showToast({
-      //     title: "您已点赞过",
-      //     icon: 'none',
-      //     duration: 2000
-      //   });
-      // }
     } else {
       wx.showToast({
         title: "为了您更好的体验,请先同意授权",
@@ -182,38 +152,21 @@ Page({
     const db = wx.cloud.database();
     const zanLogCollect = db.collection('zanLogs');
   
-    // zanLogCollect.get({
-    //   success(res) {
-    //     for (var i = 0; i < res.data.length; i++) {
-    //       if (res.data[i][nickname] == name) {
-    //         count = count + 1;
-    //         return;
-    //       }
-    //     }
-    //   }
-    // });
+    zanLogCollect.add({
+      data: {
+        nickname: name,
+        face: face
+      }
+    });
 
-    // if (count == 0) {
-    //   zanLogCollect.add({
-    //     nickname: name,
-    //     face: face
-    //   });
-
-    //   zanLogCollect.get({
-    //     success(res) {
-    //       that.setData({
-    //         zanLog: res.data,
-    //         zanNum: res.data.length
-    //       })
-    //     }
-    //   });
-    // } else {
-    //   wx.showToast({
-    //     title: "您已点赞过",
-    //     icon: 'none',
-    //     duration: 2000
-    //   });
-    }
+    zanLogCollect.get({
+      success(res) {
+        that.setData({
+          zanLog: res.data,
+          zanNum: res.data.length
+        })
+      }
+    });
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
